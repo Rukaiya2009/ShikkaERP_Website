@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-inter);
+  color: #1e293b;
+  background-color: #f8fafc;
+}
+
+.container-custom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Your custom utility classes */
+.bg-light { background-color: #f8fafc; }
+.bg-primary { background-color: #0f172a; }
+.text-primary { color: #0f172a; }
+.bg-accent { background-color: #3b82f6; }
+.text-accent { color: #3b82f6; }
+.bg-cta { background-color: #f97316; }
+.hover\:bg-cta-hover:hover { background-color: #ea580c; }
+.border-primary { border-color: #0f172a; }

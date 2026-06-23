@@ -1,0 +1,77 @@
+{
+  "common": {
+    "home": "Home",
+    "aboutUs": "About Us",
+    "features": "Features",
+    "pricing": "Pricing",
+    "services": "Services",
+    "team": "Team",
+    "blog": "Blog",
+    "contactUs": "Contact Us",
+    "getStarted": "Get Started",
+    "requestDemo": "Request Free Demo",
+    "readMore": "Read More →",
+    "learnMore": "Learn More"
+  },
+  "hero": {
+    "headline": "Run your entire school from one platform",
+    "subheadline": "ShikkhaERP is a cloud-based school management system built for Bangladeshi institutions — covering admissions, attendance, fees, exams, payroll, parent communication, and reporting, all in one place.",
+    "cta": "Request free demo",
+    "secondaryCta": "Explore features ↗",
+    "trust": "Free 14-day trial • No credit card required • Bengali support"
+  },
+  "socialProof": {
+    "title": "Trusted by forward-thinking institutions",
+    "schools": "Schools",
+    "students": "Students",
+    "teachers": "Teachers",
+    "records": "Records processed"
+  },
+  "painPoints": {
+    "title": "Still managing your school manually?",
+    "subtitle": "Traditional methods create inefficiencies that impact your institution's growth."
+  },
+  "whyShikkhaERP": {
+    "title": "Everything your institution needs — connected, automated, and always accessible",
+    "subtitle": "A complete ecosystem for modern educational management"
+  },
+  "features": {
+    "title": "Powerful features designed for modern schools",
+    "subtitle": "Everything you need to run your institution efficiently",
+    "viewAll": "View all features →"
+  },
+  "howItWorks": {
+    "title": "Get started in three simple steps",
+    "subtitle": "From demo to full deployment in days, not months",
+    "step1": "Book a free demo",
+    "step1Desc": "See the platform live with your institution's use case in 30 minutes.",
+    "step2": "Configure your school",
+    "step2Desc": "Our team helps you set up modules, import data, and train staff.",
+    "step3": "Go live in days",
+    "step3Desc": "Start managing operations digitally — fully supported from day one."
+  },
+  "screenshots": {
+    "title": "See ShikkhaERP in action",
+    "subtitle": "Intuitive interface designed for administrators, teachers, and parents."
+  },
+  "benefits": {
+    "title": "Why educational institutions choose ShikkhaERP",
+    "subtitle": "Real benefits that impact your daily operations"
+  },
+  "testimonials": {
+    "title": "What school leaders say",
+    "subtitle": "Trusted by educational institutions across Bangladesh."
+  },
+  "faq": {
+    "title": "Frequently asked questions",
+    "subtitle": "Everything you need to know about ShikkhaERP.",
+    "viewAll": "View all FAQs →"
+  },
+  "finalCta": {
+    "title": "Ready to move your school into the digital era?",
+    "subtitle": "Join 100+ institutions across Bangladesh that have replaced manual operations with ShikkhaERP. No long contracts. No setup fees. Just a smarter way to run your school.",
+    "cta": "Request free demo",
+    "secondaryCta": "Contact sales ↗",
+    "trust": "Free 14-day trial • No credit card required • Free data migration"
+  }
+}
