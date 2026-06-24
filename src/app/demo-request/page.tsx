@@ -24,7 +24,6 @@ const schoolSchema = z.object({
   numberOfTeachers: z.string().min(1, 'Number of teachers required'),
 });
 
-// 🔥 Fixed: field names match the form
 const superAdminSchema = z.object({
   superAdminName: z.string().min(2, 'Full name is required'),
   superAdminEmail: z.string().email('Valid email required'),
@@ -39,6 +38,7 @@ export default function DemoRequestPage() {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
   const [successData, setSuccessData] = useState<{ requestId: string; email: string } | null>(null);
+  const [termsChecked, setTermsChecked] = useState(false);
 
   const methods = useForm<FullFormData>({
     resolver: zodResolver(fullSchema),
@@ -70,13 +70,19 @@ export default function DemoRequestPage() {
   const prevStep = () => setStep(step - 1);
 
   const onSubmit = async (data: FullFormData) => {
+    // Prevent submission if terms not checked
+    if (!termsChecked) {
+      alert('Please agree to the Terms & Conditions and Privacy Policy.');
+      return;
+    }
+
     setLoading(true);
     try {
       const payload = {
         school: {
           name: data.name,
           address: data.address,
-          phone: data.phone, // required, guaranteed by schema
+          phone: data.phone,
           email: data.email,
           type: data.type,
           numberOfStudents: parseInt(data.numberOfStudents, 10),
@@ -90,8 +96,10 @@ export default function DemoRequestPage() {
       };
       const response = await submitDemoRequest(payload);
       setSuccessData({ requestId: response.requestId, email: response.email });
-    } catch (error) {
+    } catch (error: any) {
       console.error('Submission failed:', error);
+      // Optionally show a toast or error message
+      alert(error.message || 'Submission failed. Please try again.');
     } finally {
       setLoading(false);
     }
@@ -144,7 +152,8 @@ export default function DemoRequestPage() {
 
           {/* Form */}
           <FormProvider {...methods}>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            {/* Removed onSubmit from form */}
+            <form>
               <div className="px-6 pb-6 sm:px-8 sm:pb-8">
                 <AnimatePresence mode="wait">
                   {step === 1 && (
@@ -177,7 +186,10 @@ export default function DemoRequestPage() {
                       exit={{ opacity: 0, x: -20 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <StepSummary />
+                      <StepSummary
+                        termsChecked={termsChecked}
+                        setTermsChecked={setTermsChecked}
+                      />
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -207,7 +219,8 @@ export default function DemoRequestPage() {
                     </button>
                   ) : (
                     <button
-                      type="submit"
+                      type="button"  // ← Important: not submit
+                      onClick={handleSubmit(onSubmit)}  // ← Manual call
                       disabled={loading}
                       className="inline-flex items-center gap-2 px-8 py-2 bg-accent text-white rounded-lg font-medium hover:bg-accent-dark transition shadow-sm disabled:opacity-50"
                     >

@@ -357,10 +357,7 @@ export default function Home() {
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                <Link
-                  href="#demo-form"
-                  className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-teal-500 text-white px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:shadow-cyan-500/30 transition-all duration-300 transform hover:-translate-y-1 overflow-hidden"
-                >
+                <Link href="/demo-request" className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-cyan-600 to-teal-500 text-white px-8 py-4 rounded-full font-semibold hover:shadow-2xl hover:shadow-cyan-500/30 transition-all duration-300 transform hover:-translate-y-1 overflow-hidden">
                   <span className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
                   Request Free Demo
                   <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -940,7 +937,7 @@ export default function Home() {
         transition={{ delay: 1 }}
       >
         <Link
-          href="#demo-form"
+          href="/demo-request"
           className="bg-gradient-to-r from-primary to-accent text-white px-6 py-3 rounded-full font-semibold hover:shadow-2xl hover:shadow-primary/30 transition-all duration-300 flex items-center gap-2 shadow-xl"
         >
           <SparklesIcon className="w-4 h-4" />
@@ -997,7 +994,7 @@ export default function Home() {
                   See how ShikkhaERP can transform your school operations
                 </p>
                 <Link
-                  href="#demo-form"
+                  href="/demo-request"
                   onClick={handleClosePopup}
                   className="block w-full bg-gradient-to-r from-primary to-accent text-white py-3 rounded-xl font-semibold hover:shadow-lg transition-all"
                 >

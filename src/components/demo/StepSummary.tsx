@@ -3,7 +3,12 @@
 import { useFormContext } from 'react-hook-form';
 import { CheckCircle } from 'lucide-react';
 
-export default function StepSummary() {
+interface StepSummaryProps {
+  termsChecked: boolean;
+  setTermsChecked: (checked: boolean) => void;
+}
+
+export default function StepSummary({ termsChecked, setTermsChecked }: StepSummaryProps) {
   const { getValues } = useFormContext();
   const values = getValues();
 
@@ -52,8 +57,10 @@ export default function StepSummary() {
         <input
           type="checkbox"
           id="terms"
-          required
+          checked={termsChecked}
+          onChange={(e) => setTermsChecked(e.target.checked)}
           className="w-4 h-4 mt-1 rounded border-gray-300 text-primary focus:ring-primary"
+          required
         />
         <label htmlFor="terms" className="text-sm text-gray-600 dark:text-gray-300">
           I agree to the{' '}
