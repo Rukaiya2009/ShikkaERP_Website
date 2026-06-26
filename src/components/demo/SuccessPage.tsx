@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { CheckCircle, Mail, Clock } from 'lucide-react';
+import { CheckCircle, Mail, Clock, User } from 'lucide-react';
 import Link from 'next/link';
 
 export default function SuccessPage({ requestId, email }: { requestId: string; email: string }) {
@@ -26,14 +26,35 @@ export default function SuccessPage({ requestId, email }: { requestId: string; e
 
         <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 text-left space-y-2 mb-6">
           <p className="text-sm text-gray-600 dark:text-gray-300">
-            <span className="font-medium">📧 Email:</span> {email}
+            <span className="font-medium">📧 Super Admin Email:</span> {email}
+            <br />
+            <span className="text-xs text-gray-400">
+              (Login credentials will be sent here after approval)
+            </span>
           </p>
           <p className="text-sm text-gray-600 dark:text-gray-300">
             <span className="font-medium">📋 Request ID:</span> {requestId}
           </p>
         </div>
 
-        {/* ⏳ TIMELINE SECTION */}
+        {/* 👑 ROLE-BASED INFO BOX — NEW */}
+        <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-xl p-4 mb-6 text-left">
+          <p className="text-sm font-medium text-amber-800 dark:text-amber-300 flex items-center gap-2 mb-2">
+            <User className="w-4 h-4" />
+            Who gets the login link?
+          </p>
+          <ul className="text-sm text-gray-600 dark:text-gray-300 space-y-2 list-disc list-inside">
+            <li>
+              <strong>School Super Admin:</strong> The login link will be sent to <strong>{email}</strong> after our team approves the request.
+            </li>
+            <li>
+              <strong>Requester (You):</strong> You will receive a <strong>text-only</strong> confirmation email (no links). 
+              Ask the Super Admin to invite you later from the dashboard.
+            </li>
+          </ul>
+        </div>
+
+        {/* ⏳ TIMELINE SECTION — UPDATED */}
         <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 mb-6 text-left">
           <p className="text-sm font-medium text-blue-800 dark:text-blue-300 flex items-center gap-2 mb-2">
             <Clock className="w-4 h-4" />
@@ -41,22 +62,23 @@ export default function SuccessPage({ requestId, email }: { requestId: string; e
           </p>
           <ol className="text-sm text-gray-600 dark:text-gray-300 space-y-2 list-decimal list-inside">
             <li>
-              Our team will review your application within <strong>72 hours</strong>.
+              Our team reviews your application within <strong>72 hours</strong>.
             </li>
             <li>
-              If approved, you'll receive an email at <strong>{email}</strong>.
+              <strong>Super Admin</strong> receives an email at <strong>{email}</strong> with a login setup link.
             </li>
             <li>
-              The email will contain a link to set up your <strong>30-day free trial</strong>.
+              The Super Admin sets up the account, then can <strong>invite other staff members</strong> (like you) from the dashboard.
             </li>
           </ol>
         </div>
 
+        {/* 📧 EMAIL REMINDER */}
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
-          📧 Please check your inbox <strong>(and spam folder)</strong> for a confirmation email.
+          📧 Please check the <strong>Super Admin inbox</strong> (and spam folder) for the login link.
           <br />
           <span className="text-xs text-gray-400">
-            If you don't receive an email within 72 hours, please contact us.
+            If you are the Requester, you will only receive a text notification — no login link.
           </span>
         </p>
 
