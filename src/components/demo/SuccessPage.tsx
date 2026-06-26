@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { CheckCircle, Mail } from 'lucide-react';
+import { CheckCircle, Mail, Clock } from 'lucide-react';
 import Link from 'next/link';
 
 export default function SuccessPage({ requestId, email }: { requestId: string; email: string }) {
@@ -33,9 +33,31 @@ export default function SuccessPage({ requestId, email }: { requestId: string; e
           </p>
         </div>
 
+        {/* ⏳ TIMELINE SECTION */}
+        <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-4 mb-6 text-left">
+          <p className="text-sm font-medium text-blue-800 dark:text-blue-300 flex items-center gap-2 mb-2">
+            <Clock className="w-4 h-4" />
+            What happens next?
+          </p>
+          <ol className="text-sm text-gray-600 dark:text-gray-300 space-y-2 list-decimal list-inside">
+            <li>
+              Our team will review your application within <strong>72 hours</strong>.
+            </li>
+            <li>
+              If approved, you'll receive an email at <strong>{email}</strong>.
+            </li>
+            <li>
+              The email will contain a link to set up your <strong>30-day free trial</strong>.
+            </li>
+          </ol>
+        </div>
+
         <p className="text-sm text-gray-500 dark:text-gray-400 mb-6">
-          Our team will review your application within <strong>72 hours</strong>.
-          You will receive a confirmation email at <span className="text-primary">{email}</span>.
+          📧 Please check your inbox <strong>(and spam folder)</strong> for a confirmation email.
+          <br />
+          <span className="text-xs text-gray-400">
+            If you don't receive an email within 72 hours, please contact us.
+          </span>
         </p>
 
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
