@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// ✅ FIXED: API_BASE_URL already includes /api
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://shikkha-erp.onrender.com/api';
 
 export interface DemoRequestPayload {
@@ -29,10 +30,10 @@ export interface DemoRequestResponse {
 export async function submitDemoRequest(payload: DemoRequestPayload): Promise<DemoRequestResponse> {
   try {
     console.log('📤 Sending demo request payload:', JSON.stringify(payload, null, 2));
+    // ✅ FIXED: Changed from /demo/request to /api/demo/request
     const response = await axios.post<DemoRequestResponse>(`${API_BASE_URL}/demo/request`, payload);
     return response.data;
   } catch (error: any) {
-    // Log the full error response from the backend
     if (error.response) {
       console.error('❌ Backend error response:', error.response.data);
       console.error('❌ Status:', error.response.status);
