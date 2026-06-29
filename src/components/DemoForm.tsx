@@ -5,7 +5,7 @@ import { useState, FormEvent } from "react";
 // ============================================
 // ✅ API Configuration - Using VITE_API_BASE_URL from Vercel
 // ============================================
-const API_BASE = process.env.VITE_API_BASE_URL || 'https://shikkhaerp-backend.onrender.com/api';
+const API_BASE = process.env.VITE_API_BASE_URL || 'https://shikkhaerp.onrender.com/api';
 
 export default function DemoForm() {
   const [submitted, setSubmitted] = useState(false);
